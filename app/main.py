@@ -1,10 +1,17 @@
 import streamlit as st
 
+from rag.chat import generate_response
+
 st.set_page_config(
     page_title="RAG DOCUMENT—ASSISTANT",
     layout="wide"
 )
 
+#Session_state
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    
+     
 #Header
 st.title("RAG DOCUMENT—ASSISTANT")
 st.caption("Chat with your documents using GPT + RAG")
@@ -26,12 +33,40 @@ with st.sidebar:
     st.write("— TXT")
     st.write("— DOCX")
 
-#Main chat area
-st.subheader("Chat")
+#Display chat history
+for message in st.session_state.messages:
 
-user_input = st.chat_input("Ask a question about your documents...")
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+
+#Chat input
+user_input = st.chat_input(
+    "Ask something..."
+)
 
 if user_input:
-    st.chat_message("user").write(user_input)
 
-    st.chat_message("assistant").write("RAG pipeline is not connected yet.")
+    #Save user message
+    st.session_state.messages.append({
+        "role": "user",
+        "content": user_input
+    })
+
+    #Display user message
+    with st.chat_message("user"):
+        st.write(user_input)
+
+    #Generate asssistant response
+    assistant_response = generate_response(
+        st.session_state.messages
+    )
+
+    #Save assistant response
+    st.session_state.messages.append({
+        "role":"assistant",
+        "content":assistant_response
+    })
+
+    #Display assistant response
+    with st.chat_message("assistant"):
+        st.write(assistant_response)    
