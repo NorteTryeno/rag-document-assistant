@@ -2,6 +2,8 @@ import streamlit as st
 
 from rag.chat import generate_response
 
+from rag.document_loader import load_document
+
 st.set_page_config(
     page_title="RAG DOCUMENT—ASSISTANT",
     layout="wide"
@@ -10,8 +12,8 @@ st.set_page_config(
 #Session_state
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    
-     
+
+
 #Header
 st.title("RAG DOCUMENT—ASSISTANT")
 st.caption("Chat with your documents using GPT + RAG")
@@ -32,6 +34,14 @@ with st.sidebar:
     st.write("— PDF")
     st.write("— TXT")
     st.write("— DOCX")
+
+    st.divider()
+
+    if uploaded_files:
+        file = uploaded_files[0]
+        st.write(file.name)
+        st.write(file.type)
+        st.write(load_document(file)[:1000])
 
 #Display chat history
 for message in st.session_state.messages:
