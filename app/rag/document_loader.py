@@ -1,5 +1,7 @@
 from pypdf import PdfReader
 
+# from langchain_community.document_loaders import Docx2txtLoader
+
 
 def load_document(file):
 
@@ -8,6 +10,10 @@ def load_document(file):
 
     elif file.type == "text/plain":
         return load_txt(file)
+    
+    # как добавить сюда docx? - Пока что отложим реализацию. все равно переписывать всю связку под langchain
+    # elif file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+    #     return load_docx(file)
 
     else:
         raise ValueError(
@@ -32,6 +38,15 @@ def load_pdf(file):
 
     return text
 
+
+# def load_docx(file):
+
+#     loader = Docx2txtLoader(file)
+#     documents = loader.load()
+    
+#     file.seek(0)
+
+#     return documents[0].page_content
 
 def load_txt(file):
 

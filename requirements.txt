@@ -8,4 +8,4 @@ python-docx
 tiktoken 
 python-dotenv
 langchain-community
-pypdf
+langchain-text-splitters

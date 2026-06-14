@@ -1,8 +1,9 @@
 import streamlit as st
 
 from rag.chat import generate_response
+from rag.document_processor import create_documents
+from rag.document_splitter import split_documents
 
-from rag.document_loader import load_document
 
 st.set_page_config(
     page_title="RAG DOCUMENT—ASSISTANT",
@@ -38,10 +39,21 @@ with st.sidebar:
     st.divider()
 
     if uploaded_files:
-        file = uploaded_files[0]
-        st.write(file.name)
-        st.write(file.type)
-        st.write(load_document(file)[:1000])
+        documents = create_documents(uploaded_files)
+        chunks = split_documents(documents)
+
+        st.write("Documents:", len(documents))
+        st.write("Chunks:", len(chunks))
+
+        st.write("First document metadata:")
+        st.write(documents[0].metadata)
+
+        st.write("First chunk metadata:")
+        st.write(chunks[0].metadata)
+
+        st.write("First chunk preview:")
+        st.write(chunks[0].page_content[:500])
+
 
 #Display chat history
 for message in st.session_state.messages:
