@@ -38,9 +38,18 @@ with st.sidebar:
 
     st.divider()
 
+    if "documents" not in st.session_state:
+        st.session_state.documents = []
+
+    if "chunks" not in st.session_state:
+        st.session_state.chunks = []
+
     if uploaded_files:
         documents = create_documents(uploaded_files)
         chunks = split_documents(documents)
+        
+        st.session_state.documents = documents
+        st.session_state.chunks = chunks
 
         st.write("Documents:", len(documents))
         st.write("Chunks:", len(chunks))
@@ -54,6 +63,9 @@ with st.sidebar:
         st.write("First chunk preview:")
         st.write(chunks[0].page_content[:500])
 
+    else:
+        st.session_state.documents = []
+        st.session_state.chunks = []
 
 #Display chat history
 for message in st.session_state.messages:
