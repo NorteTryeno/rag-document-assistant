@@ -3,7 +3,8 @@ import streamlit as st
 from rag.chat import generate_response
 from rag.document_processor import create_documents
 from rag.document_splitter import split_documents
-
+from rag.vector_store import create_vector_store
+from rag.retriever import retrieve_documents
 
 st.set_page_config(
     page_title="RAG DOCUMENT—ASSISTANT",
@@ -14,6 +15,17 @@ st.set_page_config(
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+if "documents" not in st.session_state:
+    st.session_state.documents = []
+
+if "chunks" not in st.session_state:
+    st.session_state.chunks = []
+
+if "vector_store" not in st.session_state:
+    st.session_state.vector_store = None  
+
+if "retrieved_documents" not in st.session_state:
+    st.session_state.retrieved_documents = []
 
 #Header
 st.title("RAG DOCUMENT—ASSISTANT")
@@ -38,34 +50,28 @@ with st.sidebar:
 
     st.divider()
 
-    if "documents" not in st.session_state:
-        st.session_state.documents = []
-
-    if "chunks" not in st.session_state:
-        st.session_state.chunks = []
-
     if uploaded_files:
         documents = create_documents(uploaded_files)
         chunks = split_documents(documents)
-        
+
         st.session_state.documents = documents
         st.session_state.chunks = chunks
-
-        st.write("Documents:", len(documents))
-        st.write("Chunks:", len(chunks))
-
-        st.write("First document metadata:")
-        st.write(documents[0].metadata)
-
-        st.write("First chunk metadata:")
-        st.write(chunks[0].metadata)
-
-        st.write("First chunk preview:")
-        st.write(chunks[0].page_content[:500])
-
+        st.session_state.vector_store = create_vector_store(st.session_state.chunks)
+    
     else:
         st.session_state.documents = []
         st.session_state.chunks = []
+        st.session_state.vector_store = None 
+
+    st.write("Documents:", len(st.session_state.documents))
+    st.write("Chunks:", len(st.session_state.chunks))   
+
+    if st.session_state.retrieved_documents:
+        with st.expander("retrieved chunks"):
+            st.write("Found:", len(st.session_state.retrieved_documents))
+            for doc in st.session_state.retrieved_documents:
+                st.write(doc.metadata)
+                st.write(doc.page_content[:300])
 
 #Display chat history
 for message in st.session_state.messages:
@@ -89,6 +95,14 @@ if user_input:
     #Display user message
     with st.chat_message("user"):
         st.write(user_input)
+
+    if st.session_state.vector_store is not None:
+        st.session_state.retrieved_documents = retrieve_documents(
+            st.session_state.vector_store,
+            user_input,
+        )
+    else:
+        st.session_state.retrieved_documents = []       
 
     #Generate asssistant response
     assistant_response = generate_response(
