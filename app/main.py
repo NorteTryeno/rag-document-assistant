@@ -104,10 +104,24 @@ if user_input:
     else:
         st.session_state.retrieved_documents = []       
 
-    #Generate asssistant response
-    assistant_response = generate_response(
-        st.session_state.messages
-    )
+
+    if st.session_state.vector_store is None:
+        assistant_response = (
+            "Загрузите документ, прежде чем задавать вопрос."
+        )
+
+    elif not st.session_state.retrieved_documents:
+        assistant_response = (
+            "Не удалось найти подходящий контекст. "
+            "Попробуйте переформулировать вопрос."
+        )    
+
+    else:
+        #Generate asssistant response
+        assistant_response = generate_response(
+            st.session_state.messages,
+            st.session_state.retrieved_documents
+        )
 
     #Save assistant response
     st.session_state.messages.append({
