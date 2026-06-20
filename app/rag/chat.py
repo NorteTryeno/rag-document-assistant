@@ -1,5 +1,6 @@
 from utils.openai_client import client
 
+
 def generate_response(messages, retrieved_documents):
     context = "\n\n".join(
         document.page_content
@@ -21,7 +22,7 @@ def generate_response(messages, retrieved_documents):
     model_messages = [system_message] + messages
 
     response = client.chat.completions.create(
-        model= "gpt-4o-mini",
+        model="gpt-4o-mini",
         messages=model_messages
     )
 

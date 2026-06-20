@@ -27,6 +27,9 @@ if "vector_store" not in st.session_state:
 if "retrieved_documents" not in st.session_state:
     st.session_state.retrieved_documents = []
 
+if "processed_files" not in st.session_state:
+    st.session_state.processed_files = []
+
 #Header
 st.title("RAG DOCUMENT—ASSISTANT")
 st.caption("Chat with your documents using GPT + RAG")
@@ -41,6 +44,11 @@ with st.sidebar:
         accept_multiple_files=True
     )
 
+    current_files = [
+        (file.name, file.size)
+        for file in uploaded_files
+    ]
+
     st.divider()
 
     st.write("Supported formats:")
@@ -50,18 +58,22 @@ with st.sidebar:
 
     st.divider()
 
-    if uploaded_files:
+    if uploaded_files and current_files != st.session_state.processed_files:
         documents = create_documents(uploaded_files)
         chunks = split_documents(documents)
 
         st.session_state.documents = documents
         st.session_state.chunks = chunks
         st.session_state.vector_store = create_vector_store(st.session_state.chunks)
-    
-    else:
+        st.session_state.retrieved_documents = []
+        st.session_state.processed_files = current_files
+
+    elif not uploaded_files:
         st.session_state.documents = []
         st.session_state.chunks = []
-        st.session_state.vector_store = None 
+        st.session_state.vector_store = None
+        st.session_state.retrieved_documents = []
+        st.session_state.processed_files = []
 
     st.write("Documents:", len(st.session_state.documents))
     st.write("Chunks:", len(st.session_state.chunks))   
@@ -73,11 +85,13 @@ with st.sidebar:
                 st.write(doc.metadata)
                 st.write(doc.page_content[:300])
 
+
 #Display chat history
 for message in st.session_state.messages:
 
     with st.chat_message(message["role"]):
         st.write(message["content"])
+
 
 #Chat input
 user_input = st.chat_input(
@@ -131,4 +145,4 @@ if user_input:
 
     #Display assistant response
     with st.chat_message("assistant"):
-        st.write(assistant_response)    
+        st.write(assistant_response)
