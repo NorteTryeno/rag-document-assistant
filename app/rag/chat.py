@@ -11,6 +11,9 @@ def generate_response(question, retrieved_documents):
         "role": "system",
         "content": f"""
         Answer using only the provided context.
+        Carefully review all provided context fragments.
+        Account for abbreviations, synonyms, and semantically similar phrasing.
+        Use the predefined fallback response only after checking the entire context.
         If the context does not contain enough information to answer,
         respond: "В загруженных документах нет информации по этому вопросу."
         """
@@ -31,7 +34,8 @@ def generate_response(question, retrieved_documents):
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=model_messages
+        messages=model_messages,
+        temperature=0,
     )
 
     return response.choices[0].message.content

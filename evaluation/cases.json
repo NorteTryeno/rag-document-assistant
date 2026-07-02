@@ -1,0 +1,24 @@
+{
+  "dataset_name": "synthetic_resume_v1",
+  "document": "fixtures/sample_resume.txt",
+  "cases": [
+    {
+      "id": "positive_01",
+      "question": "What is the candidate's English proficiency level?",
+      "should_retrieve": true,
+      "should_answer": true,
+      "expected_terms": ["English", "C1"],
+      "match_mode": "all",
+      "category": "languages"
+    },
+    {
+      "id": "positive_02",
+      "question": "Which team were the Python scripts created for?",
+      "should_retrieve": true,
+      "should_answer": true,
+      "expected_terms": ["support team"],
+      "match_mode": "all",
+      "category": "automation"
+    }
+  ]
+}

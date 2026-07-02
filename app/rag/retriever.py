@@ -1,15 +1,16 @@
 from langchain_core.documents import Document
 
 RETRIEVAL_TOP_K = 4
-RETRIEVAL_THRESHOLD = 0.5
+MAX_DISTANCE = 1.6
 
-def retrieve_documents(vector_store, query, k=RETRIEVAL_TOP_K, threshold=RETRIEVAL_THRESHOLD) -> list[tuple[Document, float]]:
-    scored_documents = vector_store.similarity_search_with_relevance_scores(
+
+def retrieve_documents(vector_store, query, k=RETRIEVAL_TOP_K, threshold=MAX_DISTANCE) -> list[tuple[Document, float]]:
+    scored_documents = vector_store.similarity_search_with_score(
         query,
         k=k
     )
     return [
-        (doc, score)
-        for doc, score in scored_documents
-        if score >= threshold
+        (doc, distance)
+        for doc, distance in scored_documents
+        if distance <= threshold
     ]

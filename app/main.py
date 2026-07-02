@@ -56,6 +56,7 @@ with st.sidebar:
     st.write("— TXT")
     st.write("— DOCX")
 
+
     st.divider()
 
     if uploaded_files and current_files != st.session_state.processed_files:
@@ -76,15 +77,7 @@ with st.sidebar:
         st.session_state.processed_files = []
 
     st.write("Documents:", len(st.session_state.documents))
-    st.write("Chunks:", len(st.session_state.chunks))   
-
-    if st.session_state.scored_documents:
-        with st.expander("retrieved chunks"):
-            st.write("Found:", len(st.session_state.scored_documents))
-            for doc, score in st.session_state.scored_documents:
-                st.write("Score:", score)
-                st.write(doc.metadata)
-                st.write(doc.page_content[:300])
+    st.write("Chunks:", len(st.session_state.chunks))
 
 
 #Display chat history
@@ -134,7 +127,7 @@ if user_input:
         #Generate asssistant response
         retrieved_documents = [
             doc
-            for doc, score in st.session_state.scored_documents
+            for doc, distance in st.session_state.scored_documents
         ]
         
         assistant_response = generate_response(
@@ -151,3 +144,13 @@ if user_input:
     #Display assistant response
     with st.chat_message("assistant"):
         st.write(assistant_response)
+
+
+with st.sidebar:
+    if st.session_state.scored_documents:
+        with st.expander("retrieved chunks"):
+            st.write("Found:", len(st.session_state.scored_documents))
+            for doc, distance in st.session_state.scored_documents:
+                st.write("Distance:", distance)
+                st.write(doc.metadata)
+                st.write(doc.page_content)

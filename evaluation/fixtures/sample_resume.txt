@@ -1,0 +1,360 @@
+SYNTHETIC RESUME FOR RAG EVALUATION
+All names, companies, and experience are fictional.
+
+Personal Profile
+
+A motivated IT specialist with several years of experience supporting enterprise systems, troubleshooting business-critical applications, and collaborating with cross-functional teams. Comfortable working in environments where reliability, documentation quality, and communication with different stakeholders are essential.
+
+During the past several years I have gradually expanded my responsibilities from first-line technical support to deeper investigation of application issues, SQL analysis, log inspection, automation of repetitive tasks, and participation in internal improvement initiatives.
+
+I enjoy understanding complex systems, documenting technical processes, and simplifying routine work through automation. I am interested in backend development, data engineering, and machine learning, and I continuously improve my technical skills through self-study and practical projects.
+
+⸻
+
+Professional Experience
+
+Technical Support Intern
+
+Nova Digital Solutions
+
+January 2020 – April 2021
+
+Started as an intern supporting internal business applications used by different departments of the company.
+
+Responsibilities
+
+* Registered and classified incidents.
+* Assisted senior engineers with troubleshooting.
+* Investigated application errors using internal monitoring tools.
+* Helped maintain internal documentation.
+* Communicated with end users to collect diagnostic information.
+* Verified fixes after software releases.
+* Escalated incidents to development teams.
+* Participated in testing bug fixes before deployment.
+* Learned SQL basics while assisting database-related investigations.
+
+Achievements
+
+* Improved documentation for common incidents.
+* Reduced average response time by preparing troubleshooting templates.
+* Automated several repetitive report generation tasks using spreadsheets.
+* Assisted in knowledge base migration.
+
+⸻
+
+Junior Technical Support Engineer
+
+Northbridge Information Systems
+
+May 2021 – December 2022
+
+Support Engineer since May 2021.
+
+Worked in a team responsible for supporting enterprise software used by multiple business units. Daily activities included issue investigation, communication with developers, and monitoring production systems.
+
+Responsibilities
+
+* Investigation of production incidents.
+* User support via ticketing system.
+* Analysis of application logs.
+* Verification of deployment results.
+* Writing SQL queries for diagnostics.
+* Root cause investigation.
+* Monitoring scheduled jobs.
+* Documentation updates.
+* Cooperation with QA engineers.
+* Communication with analysts and developers.
+
+Technologies
+
+* Windows Server
+* Linux
+* Git
+* Jira
+* Confluence
+* Postman
+* Kibana
+* REST APIs
+
+Database Experience
+
+Worked with MS SQL, Oracle and PL/SQL while investigating production issues, validating data, checking stored procedures, and assisting database administrators.
+
+Key Contributions
+
+* Reduced repetitive manual work by documenting investigation procedures.
+* Improved incident classification accuracy.
+* Participated in production release verification.
+* Created reusable troubleshooting checklists.
+* Helped onboard new team members.
+
+⸻
+
+Application Support Engineer
+
+Vertex Cloud Technologies
+
+January 2023 – June 2025
+
+Responsible for supporting several enterprise platforms used by both internal and external customers.
+
+The role combines technical investigation, automation, communication with stakeholders, and continuous process improvement.
+
+Responsibilities
+
+* Investigation of production incidents.
+* Monitoring enterprise applications.
+* Supporting business users.
+* Root cause analysis.
+* Reviewing application logs.
+* Working with monitoring dashboards.
+* API testing.
+* Database analysis.
+* Creating technical documentation.
+* Supporting production releases.
+* Preparing internal reports.
+* Knowledge sharing.
+
+Automation
+
+Created multiple Python scripts for the support team that automated routine operational tasks including:
+
+* log processing;
+* report generation;
+* validation of configuration files;
+* ticket preprocessing;
+* data comparison utilities;
+* parsing monitoring outputs.
+
+These utilities reduced manual effort and simplified recurring operational procedures.
+
+Infrastructure Experience
+
+Worked with BMS environments while supporting enterprise infrastructure and investigating incidents affecting connected business services.
+
+Responsibilities included:
+
+* monitoring integrations;
+* validating communication between services;
+* troubleshooting operational failures;
+* documenting recurring issues;
+* coordinating with infrastructure specialists.
+
+Additional Activities
+
+* Mentoring junior colleagues.
+* Improving documentation quality.
+* Reviewing operational procedures.
+* Participating in post-incident reviews.
+* Suggesting process improvements.
+* Supporting release weekends.
+* Communicating with business representatives.
+
+⸻
+
+Technical Skills
+
+Programming
+
+* Python
+* SQL
+* Bash
+* PowerShell (basic)
+
+Databases
+
+* Microsoft SQL Server
+* Oracle Database
+* PostgreSQL
+* SQLite
+
+SQL Technologies
+
+* PL/SQL
+* Stored Procedures
+* Views
+* Indexes
+* Joins
+* Window Functions
+* Query Optimization (basic)
+
+API
+
+* REST
+* Postman
+* JSON
+
+Monitoring
+
+* Kibana
+* Grafana
+* Log analysis
+* Health monitoring
+
+Operating Systems
+
+* Windows
+* Linux
+
+Collaboration Tools
+
+* Jira
+* Confluence
+* Git
+* Microsoft Teams
+
+General Technical Skills
+
+* Incident Management
+* Root Cause Analysis
+* Technical Documentation
+* Production Support
+* Monitoring
+* Troubleshooting
+* Release Verification
+* User Support
+* Automation
+* Process Improvement
+
+⸻
+
+Education
+
+Bachelor of Computer Science
+
+Institute of Information Technologies
+
+2016 – 2020
+
+Relevant coursework:
+
+* Programming
+* Data Structures
+* Algorithms
+* Database Systems
+* Operating Systems
+* Computer Networks
+* Software Engineering
+* Probability and Statistics
+* Object-Oriented Programming
+* Information Security
+
+Graduation project focused on improving data processing efficiency for enterprise applications.
+
+⸻
+
+Additional Education
+
+Completed multiple online courses covering:
+
+* Python programming
+* SQL
+* Linux administration
+* REST APIs
+* Git
+* Software testing fundamentals
+* Data analysis
+* Machine learning fundamentals
+* Statistics
+* Technical documentation
+
+⸻
+
+Projects
+
+Internal Automation Toolkit
+
+Developed several internal utilities for simplifying repetitive support operations.
+
+Features included:
+
+* log filtering;
+* CSV processing;
+* automated report generation;
+* duplicate detection;
+* configuration comparison;
+* file validation.
+
+Implemented using Python and standard libraries.
+
+⸻
+
+Monitoring Dashboard Improvements
+
+Participated in improving operational dashboards by suggesting more informative metrics and organizing monitoring views for faster incident detection.
+
+⸻
+
+Documentation Initiative
+
+Contributed to restructuring internal documentation.
+
+Improvements included:
+
+* standardized templates;
+* troubleshooting guides;
+* onboarding materials;
+* incident checklists;
+* operational runbooks.
+
+⸻
+
+Soft Skills
+
+* Analytical thinking
+* Attention to detail
+* Communication
+* Team collaboration
+* Problem solving
+* Time management
+* Adaptability
+* Knowledge sharing
+* Continuous learning
+* Responsibility
+
+⸻
+
+Languages
+
+* Native language — Russian
+* English — C1
+* Basic German
+
+⸻
+
+Certifications
+
+Completed training programs in:
+
+* Python Fundamentals
+* SQL for Data Analysis
+* Linux Essentials
+* Git Essentials
+* REST API Testing
+* Incident Management
+* IT Service Operations
+
+⸻
+
+Interests
+
+Outside of work I enjoy learning new technologies and expanding my knowledge of software engineering, automation, and data analysis.
+
+My current areas of interest include:
+
+* machine learning;
+* natural language processing;
+* retrieval-augmented generation (RAG);
+* backend development;
+* software architecture;
+* automation tools;
+* enterprise systems;
+* technical writing.
+
+I regularly build personal projects to improve practical skills and explore modern technologies.
+
+⸻
+
+Summary
+
+Application Support Engineer with experience supporting enterprise software, investigating production incidents, automating operational tasks, and collaborating with development teams. Experienced in SQL analysis, enterprise infrastructure, API diagnostics, monitoring systems, and technical documentation. Comfortable working in dynamic production environments requiring analytical thinking, clear communication, and continuous process improvement. Interested in expanding expertise in data engineering and machine learning while maintaining a strong foundation in production support and software operations.
